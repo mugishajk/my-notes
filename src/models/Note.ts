@@ -1,11 +1,14 @@
 import mongoose, { Schema, Document } from 'mongoose'
 
 export interface INote extends Document {
+    _id?:string;
     title: string;
     description: string;
     author: string;
     expiryDate?: number;
     isPrivate: boolean;
+    createdAt?:Date; 
+    updatedAt?:Date;
 }
 
 const NoteSchema = new Schema<INote>({

@@ -1,0 +1,23 @@
+.navbar{
+padding: 20px;
+margin-bottom: 20px;
+background:#663399 ;
+color: #fff;
+display: flex;
+justify-content: space-between;
+}
+
+.navbar-brand {
+color:#fff;
+font-size: 2rem;
+}
+
+.navbar-create {
+color: #fff;
+font-size: 1.5rem;
+}
+
+.navbar-brand:hover ,.navbar-create:hover {
+color:#DAA520;
+
+}

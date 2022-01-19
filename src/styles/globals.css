@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: auto;
+}
