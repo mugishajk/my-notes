@@ -5,18 +5,19 @@
     "jest": true,
     "node": true
   },
-  "extends": "next/core-web-vitals",
+  "plugins": ["prettier","react-hooks"],
+  "extends": ["next", "next/core-web-vitals","eslint:recommended"],
   "rules": {
     "indent": ["warn"],
     "prefer-const":"error",
-    "quote-props":["warn", "always"],
+    "quote-props":["warn", "consistent"],
     "prefer-destructuring":"warn",
     "require-await":"warn",
     "no-unused-vars": 1,
     "no-useless-return":"error",
     "no-multiple-empty-lines":["warn",{ "max": 1 }],
     "no-mixed-spaces-and-tabs":"off",
-    // "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    // "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn" 
   }
 }
