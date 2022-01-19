@@ -1,0 +1,37 @@
+import dbConnect from '../../../src/utils/dbConnect'
+import Note, { INote } from '../../../src/models/Note'
+import { NextApiRequest, NextApiResponse } from 'next'
+
+dbConnect()
+type Data = {
+    success: boolean,
+    data?: INote[] | INote,
+    error?: string
+}
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    const { method, body } = req
+
+    switch (method) {
+    case "GET":
+        try {
+            const notes = await Note.find({})
+            res.status(200).json({ success: true, data: notes })
+        } catch (error) {
+            res.status(400).json({ success: false , error: error.message})
+        }
+        break;
+    case "POST":
+        try {
+            const note = await Note.create(body)
+            res.status(201).json({ success: true, data: note })
+        } catch (error) {
+            res.status(400).json({ success: false , error: error.message})
+        }
+        break;
+
+    default:
+        res.status(400).json({ success: false })
+        break;
+    }
+
+}
