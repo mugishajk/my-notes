@@ -39,6 +39,6 @@ const NoteSchema = new Schema<INote>({
 { "timestamps": true })
 
 // if the model exists already, we export it else we create it and export it
-const Note = mongoose.models.Note || mongoose.model<INote>("Note", NoteSchema);
+const Note = mongoose.models.Note || mongoose.model<INote>("Note", NoteSchema,"notes");
 
 export default Note
