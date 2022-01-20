@@ -23,11 +23,7 @@ a {
 h1 {
   text-align: center;
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-} 
+
 .wrapper {
   max-width: 1200px;
   padding: 0 16px;

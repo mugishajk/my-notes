@@ -69,6 +69,7 @@ const NoteForm = ({note}: NoteFormProps) => {
 
         }
     }   
+
     return (
         <form data-testid="note-form" className={`${styles["form-container"]}`} onSubmit={handleSubmit}>
             <Heading className={`${styles["heading"]}`} color="primary">

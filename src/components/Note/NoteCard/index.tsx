@@ -12,10 +12,7 @@ import Paragraph from '../../Common/Paragraph'
 export default function index({_id,title,author,updatedAt}:INote) {
     return (
         <Card data-testid="note-card" className={styles["note-card"]} 
-            sx={{
-                maxWidth: 500,
-                minHeight:200
-            }}>
+        >
             <Link href={`/${_id}`}><Heading className={styles["heading"]}>{title}</Heading></Link> 
           
             <Paragraph  >
