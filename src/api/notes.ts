@@ -4,7 +4,7 @@ import { baseUrl } from "./common"
 // getters
 export const getNotes =`${baseUrl}/api/notes`
 
-export const getNote = (id:number | string ) =>
+export const getNote = (id:number | string | undefined ) =>
     `${baseUrl}/api/notes/${id}`
 
 // setters
@@ -29,3 +29,4 @@ export const newNote = async (options:object) => {
   
     return data
 }
+

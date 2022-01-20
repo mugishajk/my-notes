@@ -24,7 +24,7 @@ const NoteForm = ({note}: NoteFormProps) => {
     const [errors, setErrors] = useState({})
 
     const router = useRouter()
-
+    // TODO: display errors to user 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
@@ -46,11 +46,12 @@ const NoteForm = ({note}: NoteFormProps) => {
         };
         if (note?._id) {
             console.log("Updating note")
+            console.log(body)
             try {
                 const updatedNote = await setNote(note._id,options);
                 router.replace(`${router.basePath}/${updatedNote._id}`)
             } catch (error) {
-                console.log(error)
+                console.error(error)
             }finally{
                 setIsSubmitting(false)
             }
@@ -62,7 +63,7 @@ const NoteForm = ({note}: NoteFormProps) => {
                 router.replace(`${router.basePath}/${note._id}`)
                 
             } catch (error) {
-                console.log(error)
+                console.error(error)
             }finally{
                 setIsSubmitting(false)
             }

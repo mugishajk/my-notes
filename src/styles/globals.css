@@ -24,16 +24,5 @@ h1 {
   text-align: center;
 }
 
-.wrapper {
-  max-width: 1200px;
-  padding: 0 16px;
-  margin: auto;
-}
 
-.spinner-container {
-  height: 100%;
-  width: 100%;
- display: flex;
- margin: auto;
- justify-content: center;
-}
+

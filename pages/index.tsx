@@ -14,15 +14,13 @@ const Home: NextPage = () => {
     const { data, isValidating, error } = useSWR(
         getNotes,
         customFetcher)
-    console.log(isValidating)
-    
-    //  TODO : Display error page if success is false 
+
     //  TODO : add a nice search bar to reactively search through the data 
     
     return (
         <div data-testid="home-page" className={styles["home-page"]}>
 
-            { isValidating && !error ? (<div className={styles["spinner-container"]}><Spinner /></div>) :
+            { isValidating && !error ? (<Spinner />) :
             
                 (data?.data.length > 0 && !isValidating && !error ? 
                     <div className={`${styles["note-card-container"]} ${styles["grid"]} ${styles["wrapper"]}`} >
