@@ -1,0 +1,14 @@
+.note-page {
+    width: 60vh;
+    padding: 2vh;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border: 1px #ccb300;
+    display: grid;
+}
+
+.note-page .button-container {
+    justify-content: space-evenly;
+    padding: 1vh;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../../styles/NotePage.module.css'
 import { INote } from '../../../models/Note'
 import Button from '../../Common/Button'
-import Card from '../../Common/Card'
+
 import Heading from '../../Common/Heading'
 import Link from 'next/link'
 import Paragraph from '../../Common/Paragraph'
@@ -19,13 +19,13 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
     }
     
     return (
-        <Card data-testid="note-page" className={styles["note-page"]} 
+        <div data-testid="note-page" className={styles["note-page"]} 
         >
             <Heading className={styles["heading"]}>{title}</Heading>
-            <Paragraph >
+            <Paragraph className={styles["description"]}>
                 {description}
             </Paragraph>
-            <Paragraph >
+            <Paragraph className={styles["author"]}>
                 {`Author : ${author}`}
             </Paragraph>
             <Paragraph as='small' >
@@ -51,6 +51,6 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
                 </CopyToClipboard>
             </Flex>
            
-        </Card>
+        </div>
     )
 }
