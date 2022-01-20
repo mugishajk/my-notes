@@ -1,11 +1,14 @@
 .note-card{
 width: 100%;
-
+padding: 2vh;
+margin: 20px auto;
+text-align: center;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+border: 1px #ccb300;
+display: grid;
 }
 
-.note-card .heading {
 
-}
 
 .button-container {
 max-width: 300px;

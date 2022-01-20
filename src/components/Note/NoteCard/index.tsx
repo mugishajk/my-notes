@@ -11,7 +11,7 @@ import Paragraph from '../../Common/Paragraph'
 
 export default function index({_id,title,author,updatedAt}:INote) {
     return (
-        <Card data-testid="note-card" className={styles["note-card"]} 
+        <div data-testid="note-card" className={styles["note-card"]} 
         >
             <Link href={`/${_id}`}><Heading className={styles["heading"]}>{title}</Heading></Link> 
           
@@ -30,6 +30,6 @@ export default function index({_id,title,author,updatedAt}:INote) {
             <Paragraph as='small' >
                 {`Last update : ${updatedAt}`}
             </Paragraph>
-        </Card>
+        </div>
     )
 }
