@@ -21,7 +21,9 @@ const ViewNote: NextPage = () => {
                 (data?.data && !isValidating && !error ? 
                     <NotePage {...data.data} />
                     : 
+                    // TODO : Cuter no notes to display 
                     <Text text='No note to display' />)}
+
         </div>
     )
 }

@@ -17,11 +17,6 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
     const handleDelete = (e) => {
         console.log("delete request")
     }
-
-    const handleGetLink = (e) => {
-        console.log("delete request")
-        console.log(router)
-    }
     
     return (
         <Card data-testid="note-page" className={styles["note-page"]} 
@@ -52,7 +47,7 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
                 {/* TODO: cuter alert */}
                 <CopyToClipboard text={`${baseUrl}/${_id}`}
                     onCopy={() => alert("link copied !")}>
-                    <Button className={styles["button"]} text="Copy Link" variant="primary" onClick={handleGetLink}/>
+                    <Button className={styles["button"]} text="Copy Link" variant="primary"/>
                 </CopyToClipboard>
             </Flex>
            

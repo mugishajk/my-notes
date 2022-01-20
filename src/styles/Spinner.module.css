@@ -4,4 +4,8 @@
    display: flex;
    margin: auto;
    justify-content: center;
+   position: absolute;
+   top: 50%;
+   
+  
   }

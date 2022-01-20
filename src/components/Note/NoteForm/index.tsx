@@ -15,6 +15,9 @@ interface NoteFormProps {
     note?:INote
 }
 
+// TODO: display errors to user 
+// TODO: form tests
+
 const NoteForm = ({note}: NoteFormProps) => {
     const [title, setTitle] = useState(note?.title || "")
     const [description, setDescription] = useState(note?.description || "")
@@ -24,7 +27,7 @@ const NoteForm = ({note}: NoteFormProps) => {
     const [errors, setErrors] = useState({})
 
     const router = useRouter()
-    // TODO: display errors to user 
+   
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
@@ -45,6 +48,7 @@ const NoteForm = ({note}: NoteFormProps) => {
             "body": JSON.stringify(body)
         };
         if (note?._id) {
+            // FIXME does not submit my changes
             console.log("Updating note")
             console.log(body)
             try {
@@ -57,7 +61,7 @@ const NoteForm = ({note}: NoteFormProps) => {
             }
            
         } else {
-            console.log("inserting new note")
+           
             try {
                 const note = await newNote(options);
                 router.replace(`${router.basePath}/${note._id}`)
