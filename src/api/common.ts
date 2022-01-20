@@ -1,1 +1,5 @@
-export const baseUrl = 'http://localhost:3000'
+
+import absoluteUrl from 'next-absolute-url'
+
+const {origin} = absoluteUrl()
+export const baseUrl = origin

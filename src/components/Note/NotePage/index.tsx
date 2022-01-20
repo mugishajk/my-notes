@@ -30,7 +30,7 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
         }
 
     }
-    
+   
     return (
         <div data-testid="note-page" className={styles["note-page"]} >
             <Heading className={styles["heading"]}>{title}</Heading>
