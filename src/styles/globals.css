@@ -6,6 +6,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -14,12 +19,25 @@ a {
 * {
   box-sizing: border-box;
 }
+
 h1 {
   text-align: center;
 }
-
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+} 
 .wrapper {
   max-width: 1200px;
   padding: 0 16px;
   margin: auto;
+}
+
+.spinner-container {
+  height: 100%;
+  width: 100%;
+ display: flex;
+ margin: auto;
+ justify-content: center;
 }

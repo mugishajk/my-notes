@@ -1,4 +1,5 @@
 .note-card{
+width: 100%;
 
 }
 
@@ -7,7 +8,9 @@
 }
 
 .button-container {
-justify-content: space-between;
+max-width: 300px;
+justify-content: space-evenly;
+
 }
 
 .button-container .button {

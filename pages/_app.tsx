@@ -6,7 +6,7 @@ import Layout from '../src/components/Common/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
     return <ThemeProvider data-testid={"theme-provider"} theme={theme}>
-        <Layout>
+        <Layout >
             <Component data-testid={"component"} {...pageProps} />
         </Layout>
     </ThemeProvider>

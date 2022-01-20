@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import useSWR from 'swr'
 
 import { getNotes } from '../src/api/notes'
-import Flex from '../src/components/Common/Flex'
+
 import Spinner from '../src/components/Common/Spinner'
 import Text from '../src/components/Common/Text'
 import NoteCard from '../src/components/Note/NoteCard'
@@ -25,9 +24,17 @@ const Home: NextPage = () => {
 
             { isValidating && !error ? (<div className={styles["spinner-container"]}><Spinner /></div>) :
             
-                (data.data && data.data.length > 0 && !isValidating && !error ? <Flex sx={{justifyContent:"space-evenly"}} className={styles["note-card-container"]}>
-                    {data.data.map((note: JSX.IntrinsicAttributes & INote) => <NoteCard key={note._id} {...note} />) }
-                </Flex> : <Text text='No notes to display' />)}
+                (data?.data.length > 0 && !isValidating && !error ? 
+                    <div className={`${styles["note-card-container"]} ${styles["grid"]} ${styles["wrapper"]}`} >
+                        {data.data.map(
+                            (note: JSX.IntrinsicAttributes & INote) => 
+                                
+                                <NoteCard key={note._id}  {...note} />
+                        ) 
+                        }
+                    </div> 
+                    : 
+                    <Text text='No notes to display' />)}
            
         </div>
     )

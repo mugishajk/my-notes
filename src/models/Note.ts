@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose'
 
-export interface INote extends Document {
+export interface INote {
     _id?:string;
     title: string;
     description: string;
@@ -11,7 +11,18 @@ export interface INote extends Document {
     updatedAt?:Date;
 }
 
-const NoteSchema = new Schema<INote>({
+export interface INoteSchema extends Document {
+    _id?:string;
+    title: string;
+    description: string;
+    author: string;
+    expiryDate?: number;
+    isPrivate: boolean;
+    createdAt?:Date; 
+    updatedAt?:Date;
+}
+
+const NoteSchema = new Schema<INoteSchema >({
     "title": {
         "type": String,
         "required": [true, "Please add a title to your note"],
