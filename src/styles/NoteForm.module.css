@@ -1,8 +1,15 @@
-.form-container {
+.form {
     width: 60vh;
     margin: 20px auto;
+    padding: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: grid;
 }
 
-.form-container .heading {
+.form .heading {
 text-align: center;
+}
+
+.form .field {
+    padding: 1vh 1vh;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../../../styles/NotePage.module.css'
 import { INote } from '../../../models/Note'
 import Button from '../../Common/Button'
@@ -10,17 +10,29 @@ import Flex from '../../Common/Flex'
 import { useRouter } from 'next/router'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { baseUrl } from '../../../api/common'
+import { deleteNote } from '../../../api/notes'
 
 export default function NotePage({_id,title,description,expiryDate, author,updatedAt,createdAt}:INote) {
     const router = useRouter();
+    const [isDeleting, setIsDeleting] = useState(false)
     // TODO: Confirm delete modal with swal then proceed to delete if confirm
-    const handleDelete = (e) => {
-        console.log("delete request")
+    const handleDelete = async (e) => {
+        setIsDeleting(true)
+        try {
+            const {success} = await deleteNote(_id)
+            if (success) {
+                router.push("/")
+            }
+        } catch (error) {
+            console.log(error)
+        }finally{
+            setIsDeleting(false)
+        }
+
     }
     
     return (
-        <div data-testid="note-page" className={styles["note-page"]} 
-        >
+        <div data-testid="note-page" className={styles["note-page"]} >
             <Heading className={styles["heading"]}>{title}</Heading>
             <Paragraph className={styles["description"]}>
                 {description}

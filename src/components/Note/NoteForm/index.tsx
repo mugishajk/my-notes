@@ -40,7 +40,7 @@ const NoteForm = ({note}: NoteFormProps) => {
             
         }
         const options = {
-            "method": 'POST',
+            "method": note?._id ? "PUT":'POST',
             'headers': {
                 "Accept": "application/json",
                 "Content-Type":"application/json"
@@ -48,12 +48,9 @@ const NoteForm = ({note}: NoteFormProps) => {
             "body": JSON.stringify(body)
         };
         if (note?._id) {
-            // FIXME does not submit my changes
-            console.log("Updating note")
-            console.log(body)
             try {
-                const updatedNote = await setNote(note._id,options);
-                router.replace(`${router.basePath}/${updatedNote._id}`)
+                await setNote(note._id,options);
+                router.replace(`${router.basePath}/${note._id}`)
             } catch (error) {
                 console.error(error)
             }finally{
@@ -76,27 +73,34 @@ const NoteForm = ({note}: NoteFormProps) => {
     }   
 
     return (
-        <form data-testid="note-form" className={`${styles["form-container"]}`} onSubmit={handleSubmit}>
+        <form data-testid="note-form" className={`${styles["form"]}`} onSubmit={handleSubmit}>
             <Heading className={`${styles["heading"]}`} color="primary">
                 My  Note
             </Heading>
-            <Field  label="Title" name="title" defaultValue={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}/>
-            <Label>Description</Label>
-            <Textarea name="description" defaultValue={description} rows={8} onChange={(e: ChangeEventHandler<HTMLTextAreaElement>) => {setDescription(e.target.value)}}/>
-            <Field label="Author" name="author" defaultValue={author} onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)}/>
-            <Switch
-                className={`${styles["switch"]}`}
-                label="Is this note private?"
-                defaultChecked={isPrivate}
-                onChange={e => setIsPrivate(e.target.checked)}
-                sx={{
-                    "bakgroundColor": 'gray',
-                    'input:checked ~ &': {
-                        backgroundColor: 'secondary',
-                    },
-                }}
+            <div className={`${styles["field"]}`}>
+                <Field  label="Title" name="title" defaultValue={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}/>
+            </div>
+            <div className={`${styles["field"]}`}>
+                <Label>Description</Label>
+                <Textarea name="description" defaultValue={description} rows={8} onChange={(e: ChangeEventHandler<HTMLTextAreaElement>) => {setDescription(e.target.value)}}/>
+            </div>
+            <div className={`${styles["field"]}`}>
+                <Field label="Author" name="author" defaultValue={author} onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)}/>
+            </div>
+            <div className={`${styles["field"]}`}>
+                <Switch
+                    label="Private Note"
+                    defaultChecked={isPrivate}
+                    onChange={e => setIsPrivate(e.target.checked)}
+                    sx={{
+                        "bakgroundColor": 'gray',
+                        'input:checked ~ &': {
+                            backgroundColor: 'secondary',
+                        },
+                    }}
                 
-            />
+                />
+            </div>
             <Button disabled={isSubmitting} text={note?._id ? "Save Changes" : "Create"} type="submit" />
         </form>
     )

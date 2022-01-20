@@ -30,3 +30,16 @@ export const newNote = async (options:object) => {
     return data
 }
 
+export const deleteNote = async (id:number | string ) => {
+    const options = {
+        "method": "DELETE"
+    }
+    const response = await fetch(`${baseUrl}/api/notes/${id}`, options)
+    const data = await response.json()
+    
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+  
+    return data
+}
