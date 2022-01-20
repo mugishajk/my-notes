@@ -14,7 +14,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     switch (method) {
     case "GET":
         try {
-            const notes = await Note.find({})
+            // get all the public notes
+            const notes = await Note.find({isPrivate:false})
             res.status(200).json({ success: true, data: notes })
         } catch (error) {
             res.status(400).json({ success: false , error: error.message})
