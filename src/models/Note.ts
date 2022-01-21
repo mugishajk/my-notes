@@ -5,7 +5,7 @@ export interface INote {
     title: string;
     description: string;
     author: string;
-    expiryDate?: number;
+    expireAt?: Date;
     isPrivate: boolean;
     createdAt?:Date; 
     updatedAt?:Date;
@@ -16,7 +16,7 @@ export interface INoteSchema extends Document {
     title: string;
     description: string;
     author: string;
-    expiryDate?: number;
+    expireAt?: Date;
     isPrivate: boolean;
     createdAt?:Date; 
     updatedAt?:Date;
@@ -40,8 +40,8 @@ const NoteSchema = new Schema<INoteSchema >({
         "trim": true,
         "required": [true, "Please add the note\'s author"],
     },
-    "expiryDate": {
-        "type": Number,
+    "expireAt": {
+        "type": Date,
         "default": null
     },
     "isPrivate": {
@@ -50,9 +50,9 @@ const NoteSchema = new Schema<INoteSchema >({
     }
 
 },
-{ "timestamps": true })
+{ "timestamps": true  })
 
 // if the model exists already, we export it else we create it and export it
-const Note = mongoose.models.Note || mongoose.model<INote>("Note", NoteSchema,"notes");
-
+const Note =  mongoose.models.Note || mongoose.model<INote>("Note", NoteSchema,"notes");
+// 
 export default Note

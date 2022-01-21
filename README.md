@@ -27,6 +27,9 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Screenshots
+Here are a few screenshots of what I've implemented
+<details>
+  <summary>Click to see the pages</summary>
  Home Page:
 
 ![](./screenshots/home-page.png)
@@ -44,4 +47,5 @@ Create Note :
  View Note:
 
 ![](./screenshots/view-note.png)
+</details>
 
