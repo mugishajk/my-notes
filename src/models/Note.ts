@@ -54,5 +54,5 @@ const NoteSchema = new Schema<INoteSchema >({
 
 // if the model exists already, we export it else we create it and export it
 const Note =  mongoose.models.Note || mongoose.model<INote>("Note", NoteSchema,"notes");
-// 
+
 export default Note
