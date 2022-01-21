@@ -11,7 +11,7 @@ const ViewNote: NextPage = () => {
     const router = useRouter()
     const { id  } = router.query
     const { data, isValidating, error } = useSWR(
-        getNote(id),
+        getNote(id?.toString()),
         customFetcher)
 
     return (
