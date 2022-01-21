@@ -3,7 +3,7 @@ import { INote } from "../../../models/Note"
 import Field from "../../Common/Field"
 import Switch from "../../Common/Switch"
 import styles from '../../../styles/NoteForm.module.css'
-import { ChangeEvent, ChangeEventHandler, useState } from "react"
+import { ChangeEvent, SyntheticEvent, useState } from "react"
 import Textarea from "../../Common/Textarea"
 import Label from '../../Common/Label'
 import Heading from "../../Common/Heading"
@@ -19,13 +19,13 @@ interface NoteFormProps {
 // TODO: form tests
 
 const NoteForm = ({note}: NoteFormProps) => {
-    const [title, setTitle] = useState(note?.title || "")
-    const [description, setDescription] = useState(note?.description || "")
-    const [author, setAuthor] = useState(note?.author || "")
-    const [isPrivate, setIsPrivate] = useState(note?.isPrivate || false)
-    const [expires, setExpires] = useState(note?.expireAt ? true : false)
-    const [expiryDate, setExpiryDate] = useState(note?.expireAt || null)
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [title, setTitle] = useState<string>(note?.title || "")
+    const [description, setDescription] = useState<string>(note?.description || "")
+    const [author, setAuthor] = useState<string>(note?.author || "")
+    const [isPrivate, setIsPrivate] = useState<boolean>(note?.isPrivate || false)
+    const [expires, setExpires] = useState<boolean>(note?.expireAt ? true : false)
+    const [expiryDate, setExpiryDate] = useState<Date | null | string>(note?.expireAt || null)
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
     const router = useRouter()
 
@@ -33,7 +33,7 @@ const NoteForm = ({note}: NoteFormProps) => {
     // add a day
     minDate.setDate(minDate.getDate() + 1);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e : SyntheticEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
         const body = {
@@ -89,7 +89,7 @@ const NoteForm = ({note}: NoteFormProps) => {
             </div>
             <div className={`${styles["field"]}`}>
                 <Label>Description</Label>
-                <Textarea name="description" maxlength="3000" defaultValue={description} rows={8} onChange={(e: ChangeEventHandler<HTMLTextAreaElement>) => {setDescription(e.target.value)}} required />
+                <Textarea name="description" maxLength={3000} defaultValue={description} rows={8} onChange={(e: SyntheticEvent) => setDescription((e.target as HTMLInputElement).value)} required />
             </div>
             <div className={`${styles["field"]}`}>
                 <Field label="Author" name="author" defaultValue={author} onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)} required />
@@ -109,7 +109,7 @@ const NoteForm = ({note}: NoteFormProps) => {
                 />
             </div>
             {expires ? <div className={`${styles["field"]}`}>
-                <Field label="Expiry Date" name="expiry-date" type="date" defaultValue={formatDate(expiryDate ? new Date(expiryDate) : new Date())} min={minDate.toISOString().split("T")[0]} onChange={(e: ChangeEvent<HTMLInputElement>) => setExpiryDate(e.target.value)}/>
+                <Field label="Expiry Date" name="expiry-date" type="date" defaultValue={formatDate(expiryDate ? new Date(expiryDate) : new Date())} min={minDate.toISOString().split("T")[0]} onChange={(e: SyntheticEvent) => setExpiryDate((e.target as HTMLInputElement).value)}/>
             </div> : ""}
             <div className={`${styles["field"]}`}>
                 <Switch

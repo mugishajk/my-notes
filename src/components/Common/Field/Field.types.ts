@@ -5,4 +5,5 @@ export const FieldValidator = t.type({
 
 })
 
-export type FieldProps = t.TypeOf<typeof FieldValidator> & TuiFieldProps<never>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type FieldProps = t.TypeOf<typeof FieldValidator> & TuiFieldProps<any>
