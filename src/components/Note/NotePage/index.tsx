@@ -9,8 +9,9 @@ import Paragraph from '../../Common/Paragraph'
 import Flex from '../../Common/Flex'
 import { useRouter } from 'next/router'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { baseUrl } from '../../../api/common'
+
 import { deleteNote } from '../../../api/notes'
+import { baseUrl } from '../../../../pages/_app'
 
 export default function NotePage({_id,title,description,expiryDate, author,updatedAt,createdAt}:INote) {
     const router = useRouter();
@@ -30,6 +31,7 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
         }
 
     }
+    console.log(Date.now())
    
     return (
         <div data-testid="note-page" className={styles["note-page"]} >

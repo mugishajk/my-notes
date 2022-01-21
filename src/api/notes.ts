@@ -1,5 +1,5 @@
 import * as t from "io-ts"
-import { baseUrl } from "./common"
+import { baseUrl } from "../../pages/_app"
 
 // getters
 export const getNotes =`${baseUrl}/api/notes`
