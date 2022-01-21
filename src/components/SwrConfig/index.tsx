@@ -5,7 +5,7 @@ import { Fetcher, PublicConfiguration } from 'swr/dist/types';
 import { render, RenderOptions } from "@testing-library/react"
 import { FC, ReactElement } from "react"
 
-type Provider = { provider?: () => Cache<any> };
+type Provider = { provider?: () => Cache<never> };
 
 /**
  * custom SWR component for testing
@@ -26,7 +26,7 @@ export function SwrConfig({
     );
 }
 
-const AllTheProviders: FC<any> = ({ children }) => {
+const AllTheProviders: FC<never> = ({ children }) => {
     return (
         <SwrConfig data-testid={"swr-config"} swrConfig={{ "dedupingInterval": 0, "provider": () => new Map() }}>
             {children}

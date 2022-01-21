@@ -1,7 +1,10 @@
 import { HeadingProps as TuiHeadingProps } from 'theme-ui'
 
 export interface HeadingValidator {
-    children: any,
+    children: JSX.Element
+    | JSX.Element[]
+    | string
+    | string[]
 
 }
 

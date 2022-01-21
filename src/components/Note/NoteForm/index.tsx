@@ -29,7 +29,7 @@ const NoteForm = ({note}: NoteFormProps) => {
 
     const router = useRouter()
 
-    var minDate = new Date();
+    const minDate = new Date();
     // add a day
     minDate.setDate(minDate.getDate() + 1);
 

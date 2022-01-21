@@ -11,7 +11,7 @@ const EditNote: NextPage = () => {
     const router = useRouter()
     const { id  } = router.query
     const { data, isValidating, error } = useSWR(
-        getNote(id),
+        getNote(id?.toString()),
         customFetcher)
     return (
         <div data-testid="edit-page" className={styles["edit-page"]}>

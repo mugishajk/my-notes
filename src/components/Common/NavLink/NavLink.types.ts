@@ -1,7 +1,10 @@
 import { NavLinkProps as TuiNavLinkProps } from 'theme-ui'
 
 export interface NavLinkValidator {
-    children: any,
+    children: JSX.Element
+    | JSX.Element[]
+    | string
+    | string[]
 
 }
 

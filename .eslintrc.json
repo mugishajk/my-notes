@@ -7,12 +7,14 @@
   },
   "plugins": [
     "prettier",
-    "react-hooks"
+    "react-hooks",
+    "@typescript-eslint"
   ],
   "extends": [
     "next",
     "next/core-web-vitals",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "indent": [

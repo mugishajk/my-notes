@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 dbConnect()
 type Data = {
     success: boolean,
-    data?: INote[] | INote | {},
+    data?: INote[] | INote | Record<string, never>,
     error?: string
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {

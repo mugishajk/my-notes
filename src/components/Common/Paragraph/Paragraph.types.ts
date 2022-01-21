@@ -1,7 +1,10 @@
 import { ParagraphProps as TuiParagraphProps } from 'theme-ui'
 
 export interface ParagraphValidator {
-    children: any,
+    children: JSX.Element
+    | JSX.Element[]
+    | string
+    | string[]
 
 }
 

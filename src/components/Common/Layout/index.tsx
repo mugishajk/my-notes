@@ -2,7 +2,10 @@ import Head from 'next/head'
 import Navbar from '../Navbar'
 
 interface Props {
-    children:any
+    children:JSX.Element
+    | JSX.Element[]
+    | string
+    | string[]
 }
 
 const Layout = ({children}: Props) => {

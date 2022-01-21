@@ -1,7 +1,10 @@
 import { CardProps as TuiCardProps } from 'theme-ui'
 
 export interface CardValidator {
-    children: any,
+    children: JSX.Element
+    | JSX.Element[]
+    | string
+    | string[]
 
 }
 
