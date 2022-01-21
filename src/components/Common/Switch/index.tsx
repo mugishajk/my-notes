@@ -1,8 +1,11 @@
-import { Switch } from 'theme-ui'
+import { Checkbox, Label } from 'theme-ui'
 import { SwitchProps } from './Switch.types'
 
-export default function index(props : SwitchProps) {
+export default function index({label,...props} : SwitchProps) {
     return (
-        <Switch data-testid="switch" {...props}/>
+        <Label>
+            <Checkbox data-testid="switch" {...props} /> {label}
+        </Label>
+     
     )
 }

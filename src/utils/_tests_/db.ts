@@ -6,13 +6,9 @@ const mongod = new MongoMemoryServer();
 
 // connect to db 
 const connect = async () => {
-    const uri = await mongod.getUri()
-    const mongooseOpts = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
+    const uri =  mongod.getUri()
 
-    await mongoose.connect(uri,mongooseOpts);
+    await mongoose.connect(uri);
 }
 
 // disconnect and close connection 

@@ -106,6 +106,7 @@ const NoteForm = ({note}: NoteFormProps) => {
                         "bakgroundColor": 'gray',
                         'input:checked ~ &': {
                             backgroundColor: 'primary',
+                            color:"white"
                         },
                     }}
                 
@@ -123,6 +124,7 @@ const NoteForm = ({note}: NoteFormProps) => {
                         "bakgroundColor": 'gray',
                         'input:checked ~ &': {
                             backgroundColor: 'secondary',
+                            color:"white"
                         },
                     }}
                 
