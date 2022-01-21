@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             const notes = await Note.find({isPrivate:false})
             res.status(200).json({ success: true, data: notes })
         } catch (error) {
-            res.status(400).json({ success: false , error: error.message})
+            res.status(400).json({ success: false , error: "There is a server error"})
         }
         break;
     case "POST":
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             const note = await Note.create(body)
             res.status(201).json({ success: true, data: note })
         } catch (error) {
-            res.status(400).json({ success: false , error: error.message})
+            res.status(400).json({ success: false , error: "There is a server error"})
         }
         break;
 
