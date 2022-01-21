@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React from 'react'
 import styles from '../../../styles/NoteCard.module.css'
 import { INote } from '../../../models/Note'

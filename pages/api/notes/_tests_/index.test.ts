@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import db from "../../../../src/utils/_tests_/db"
 import Note from '../../../../src/models/Note'
 /**

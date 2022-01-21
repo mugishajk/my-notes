@@ -21,9 +21,10 @@ export default function NotePage({_id,title,description,expireAt, author,updated
     const handleDelete = async () => {
         setIsDeleting(true)
         try {
-            const {success} = await deleteNote(_id)
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            const {success} = await deleteNote(_id || "")
             if (success) {
-                router.push("/")
+                void router.push("/")
             }
         } catch (error) {
             console.log(error)
@@ -54,13 +55,13 @@ export default function NotePage({_id,title,description,expireAt, author,updated
                     {`Expires on : ${formatDate(expireAt)}`}
                 </Paragraph>: ""}
             <Flex className={styles["button-container"]}>
-                <Link href={`/${_id}/edit`} passHref>
+                <Link href={`/${_id|| ""}/edit`} passHref>
                     <Button className={styles["button"]} text="Edit" variant="secondary"/>
                 </Link>
             
                 <Button className={styles["button"]} disabled={isDeleting} text={isDeleting ? "Deleting..." :"Delete"} variant="error" onClick={handleDelete}/>
                 {/* TODO: cuter alert */}
-                <CopyToClipboard text={`${baseUrl}/${_id}`}
+                <CopyToClipboard text={`${baseUrl}/${_id || ""}`}
                     onCopy={() => alert("link copied !")}>
                     <Button className={styles["button"]} text="Copy Link" variant="primary"/>
                 </CopyToClipboard>

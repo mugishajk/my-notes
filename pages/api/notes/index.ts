@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import dbConnect from '../../../src/utils/dbConnect'
 import Note, { INote } from '../../../src/models/Note'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-dbConnect()
+void dbConnect()
 type Data = {
     success: boolean,
     data?: INote[] | INote,

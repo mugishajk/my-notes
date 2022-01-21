@@ -42,6 +42,7 @@ export async function customFetcher(url: string) {
         throw new Error(json.message);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return res.json();
 }
 export const customRender = (

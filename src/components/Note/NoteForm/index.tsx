@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 
 import { INote } from "../../../models/Note"
 import Field from "../../Common/Field"
@@ -57,7 +59,7 @@ const NoteForm = ({note}: NoteFormProps) => {
         if (note?._id) {
             try {
                 await setNote(note._id,options);
-                router.replace(`${router.basePath}/${note._id}`)
+                void router.replace(`${router.basePath}/${note._id}`)
             } catch (error) {
                 console.error(error)
             }finally{
@@ -67,8 +69,9 @@ const NoteForm = ({note}: NoteFormProps) => {
         } else {
            
             try {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 const note = await newNote(options);
-                router.replace(`${router.basePath}/${note._id}`)
+                void router.replace(`${router.basePath}/${note?._id}`)
                 
             } catch (error) {
                 console.error(error)
