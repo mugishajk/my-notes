@@ -16,7 +16,6 @@ interface NoteFormProps {
     note?:INote
 }
 
-// TODO: display errors to user 
 // TODO: form tests
 
 const NoteForm = ({note}: NoteFormProps) => {
@@ -27,7 +26,6 @@ const NoteForm = ({note}: NoteFormProps) => {
     const [expires, setExpires] = useState(note?.expireAt ? true : false)
     const [expiryDate, setExpiryDate] = useState(note?.expireAt || null)
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [errors, setErrors] = useState({})
 
     const router = useRouter()
 

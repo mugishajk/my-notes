@@ -12,12 +12,13 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import { deleteNote } from '../../../api/notes'
 import { baseUrl } from '../../../../pages/_app'
+import { formatDate } from '../../../utils/date'
 
-export default function NotePage({_id,title,description,expiryDate, author,updatedAt,createdAt}:INote) {
+export default function NotePage({_id,title,description,expireAt, author,updatedAt,createdAt}:INote) {
     const router = useRouter();
     const [isDeleting, setIsDeleting] = useState(false)
     // TODO: Confirm delete modal with swal then proceed to delete if confirm
-    const handleDelete = async (e) => {
+    const handleDelete = async () => {
         setIsDeleting(true)
         try {
             const {success} = await deleteNote(_id)
@@ -43,21 +44,21 @@ export default function NotePage({_id,title,description,expiryDate, author,updat
                 {`Author : ${author}`}
             </Paragraph>
             <Paragraph as='small' >
-                {`Creation : ${createdAt}`}
+                {`Created on : ${createdAt ? formatDate(createdAt) : ""}`}
             </Paragraph>
             <Paragraph as='small' >
-                {`Last update : ${updatedAt}`}
+                {`Last update : ${updatedAt ? formatDate(updatedAt) : ""}`}
             </Paragraph>
-            {expiryDate ?
+            {expireAt ?
                 <Paragraph as='small' >
-                    {`Expires on : ${expiryDate}`}
+                    {`Expires on : ${formatDate(expireAt)}`}
                 </Paragraph>: ""}
             <Flex className={styles["button-container"]}>
-                <Link href={`/${_id}/edit`}>
+                <Link href={`/${_id}/edit`} passHref>
                     <Button className={styles["button"]} text="Edit" variant="secondary"/>
                 </Link>
             
-                <Button className={styles["button"]} text="Delete" variant="error" onClick={handleDelete}/>
+                <Button className={styles["button"]} disabled={isDeleting} text={isDeleting ? "Deleting..." :"Delete"} variant="error" onClick={handleDelete}/>
                 {/* TODO: cuter alert */}
                 <CopyToClipboard text={`${baseUrl}/${_id}`}
                     onCopy={() => alert("link copied !")}>
