@@ -5,12 +5,12 @@ import styles from '../../../styles/Navbar.module.css'
 const Navbar = () => {
     return (
         <nav data-testid={"navbar"} className={styles['navbar']}>
-            <Link href="/">
+            <Link href="/" >
                 <a className={styles['navbar-brand']}>
                 Note App
                 </a>
             </Link>
-            <Link href="/new">
+            <Link href="/new" >
                 <a className={styles['navbar-create']}>
                 Create note
                 </a>
