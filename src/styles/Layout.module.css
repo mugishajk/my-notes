@@ -1,0 +1,6 @@
+.layout-container{
+    display: grid;
+    max-width: 1500px;
+    width: 100vw;
+    margin: auto;
+}

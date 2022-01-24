@@ -12,7 +12,6 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import { deleteNote } from '../../../api/notes'
 import { baseUrl } from '../../../../pages/_app'
-import { formatDate } from '../../../utils/date'
 
 export default function NotePage({_id,title,description,expireAt, author,updatedAt,createdAt}:INote) {
     const router = useRouter();
@@ -36,7 +35,7 @@ export default function NotePage({_id,title,description,expireAt, author,updated
     console.log(Date.now())
    
     return (
-        <div data-testid="note-page" className={styles["note-page"]} >
+        <div data-testid="note-page" className={`${styles["note-page"]} `} >
             <Heading className={styles["heading"]}>{title}</Heading>
             <div className={styles["field"]}>
                 <Paragraph className={styles["description"]}>

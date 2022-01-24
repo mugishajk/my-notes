@@ -18,15 +18,15 @@ const Home: NextPage = () => {
         customFetcher)
 
     //  TODO : add a nice search bar to reactively search through the data 
-    console.log(data)
+  
     return (
         <div data-testid="home-page" className={styles["home-page"]}>
 
             { isValidating && !error ? (<Spinner />) :
             
-                (data && data.data.length > 0 && !isValidating && !error ? 
+                (data && data.data?.length > 0 && !isValidating && !error ? 
                     <div className={`${styles["note-card-container"]} ${styles["grid"]} ${styles["wrapper"]}`} >
-                        {data?.data.map(
+                        {data.data?.map(
                             (note: JSX.IntrinsicAttributes & INote) => 
                                 
                                 <NoteCard key={note._id}  {...note} />
