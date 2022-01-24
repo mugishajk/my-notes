@@ -1,4 +1,5 @@
 module.exports = {
+    preset: '@shelf/jest-mongodb',
     testEnvironment: "jsdom",
     testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
     setupFilesAfterEnv: ['<rootDir>/jest/setupFilesAfterEnv.js'],

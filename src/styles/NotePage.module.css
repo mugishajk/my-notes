@@ -7,7 +7,18 @@
     border: 1px #ccb300;
     display: grid;
 }
-
+.note-page .field {
+  
+    padding: 1vh;
+}
+.note-page .field .description{
+  
+    text-align: justify;
+}
+.note-page .small-field {
+  
+    padding: 0.5vh;
+}
 .note-page .button-container {
     justify-content: space-evenly;
     padding: 1vh;
