@@ -8,6 +8,7 @@ import Flex from '../../Common/Flex'
 import Heading from '../../Common/Heading'
 import Link from 'next/link'
 import Paragraph from '../../Common/Paragraph'
+import moment from 'moment'
 
 export default function index({_id,title,author,updatedAt}:INote) {
     return (
@@ -18,7 +19,7 @@ export default function index({_id,title,author,updatedAt}:INote) {
                 {`Author : ${author}`}
             </Paragraph>
             <Paragraph as='small' >
-                {`Last update : ${updatedAt}`}
+                {`Last update : ${moment(updatedAt).fromNow()}`}
             </Paragraph>
             <Flex className={styles["button-container"]}>
                 <Link href={`/${_id}`} passHref>

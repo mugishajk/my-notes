@@ -50,12 +50,12 @@ export default function NotePage({_id,title,description,expireAt, author,updated
             </div>
             <div className={styles["small-field"]}>
                 <Paragraph as='small' >
-                    {`Created : ${createdAt ? moment(formatDate(createdAt)).fromNow() : ""}`}
+                    {`Created : ${createdAt ? moment(createdAt).fromNow() : ""}`}
                 </Paragraph>
             </div>
             <div className={styles["small-field"]}>
                 <Paragraph as='small' >
-                    {`Last update : ${updatedAt ? moment(formatDate(updatedAt)).fromNow() : ""}`}
+                    {`Last update : ${updatedAt ? moment(updatedAt).fromNow() : ""}`}
                 </Paragraph>
             </div>
               
@@ -76,7 +76,7 @@ export default function NotePage({_id,title,description,expireAt, author,updated
             {expireAt ?
                 <div className={styles["small-field"]}>
                     <Paragraph as='small' >
-                        {`Expires ${moment(formatDate(expireAt)).fromNow()}`}
+                        {`Expires ${moment(expireAt).fromNow()}`}
                     </Paragraph>
                 </div>: ""}
         </div>
