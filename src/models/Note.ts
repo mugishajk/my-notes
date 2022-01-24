@@ -5,10 +5,11 @@ export interface INote {
     title: string;
     description: string;
     author: string;
-    expireAt?: Date;
+    expireAt?: Date | string | null;
     isPrivate: boolean;
-    createdAt?:Date; 
-    updatedAt?:Date;
+    createdAt?:Date | string; 
+    updatedAt?:Date | string;
+    __v?: number;
 }
 
 export interface INoteSchema extends Document {
@@ -16,10 +17,10 @@ export interface INoteSchema extends Document {
     title: string;
     description: string;
     author: string;
-    expireAt?: Date;
+    expireAt?: Date | string;
     isPrivate: boolean;
-    createdAt?:Date; 
-    updatedAt?:Date;
+    createdAt?:Date | string; 
+    updatedAt?:Date | string;
 }
 
 const NoteSchema = new Schema<INoteSchema >({

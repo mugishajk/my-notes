@@ -88,17 +88,18 @@ const NoteForm = ({note}: NoteFormProps) => {
                 My  Note
             </Heading>
             <div className={`${styles["field"]}`}>
-                <Field  label="Title" name="title" maxlength="100" defaultValue={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} required autofocus />
+                <Field data-testid="note-form-title" label="Title" name="title" maxlength="100" defaultValue={title} onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} required autofocus />
             </div>
             <div className={`${styles["field"]}`}>
                 <Label>Description</Label>
-                <Textarea name="description" maxLength={3000} defaultValue={description} rows={8} onChange={(e: SyntheticEvent) => setDescription((e.target as HTMLInputElement).value)} required />
+                <Textarea data-testid="note-form-description" name="description" maxLength={3000} defaultValue={description} rows={8} onChange={(e: SyntheticEvent) => setDescription((e.target as HTMLInputElement).value)} required />
             </div>
             <div className={`${styles["field"]}`}>
-                <Field label="Author" name="author" defaultValue={author} onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)} required />
+                <Field data-testid="note-form-author" label="Author" name="author" defaultValue={author} onChange={(e: ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)} required />
             </div>
             <div className={`${styles["field"]}`}>
                 <Switch
+                    data-testid="note-form-expires"
                     label="Expires"
                     defaultChecked={expires}
                     onChange={e => setExpires(e.target.checked)}
@@ -113,10 +114,12 @@ const NoteForm = ({note}: NoteFormProps) => {
                 />
             </div>
             {expires ? <div className={`${styles["field"]}`}>
-                <Field label="Expiry Date" name="expiry-date" type="date" defaultValue={formatDate(expiryDate ? new Date(expiryDate) : new Date())} min={minDate.toISOString().split("T")[0]} onChange={(e: SyntheticEvent) => setExpiryDate((e.target as HTMLInputElement).value)}/>
+                <Field data-testid="note-form-expiry-date" label="Expiry Date" name="expiry-date" type="date" defaultValue={formatDate(expiryDate ? new Date(expiryDate) : new Date())} min={minDate.toISOString().split("T")[0]} onChange={(e: SyntheticEvent) => setExpiryDate((e.target as HTMLInputElement).value)}/>
             </div> : ""}
             <div className={`${styles["field"]}`}>
                 <Switch
+
+                    data-testid="note-form-is-private"
                     label="Private Note"
                     defaultChecked={isPrivate}
                     onChange={e => setIsPrivate(e.target.checked)}
@@ -130,7 +133,7 @@ const NoteForm = ({note}: NoteFormProps) => {
                 
                 />
             </div>
-            <Button disabled={isSubmitting} text={note?._id ? "Save Changes" : "Create"} type="submit" />
+            <Button data-testid="note-form-submit-button" disabled={isSubmitting} text={note?._id ? "Save Changes" : "Create"} type="submit" />
         </form>
     )
 }

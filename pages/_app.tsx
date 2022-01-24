@@ -5,7 +5,7 @@ import {theme} from '../src/theme'
 import Layout from '../src/components/Common/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
-    console.log(process.env.NODE_ENV)
+  
     return <ThemeProvider data-testid={"theme-provider"} theme={theme}>
         <Layout >
             <Component data-testid={"component"} {...pageProps} />
