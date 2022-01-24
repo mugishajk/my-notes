@@ -5,7 +5,7 @@ export interface INote {
     title: string;
     description: string;
     author: string;
-    expireAt?: Date | string | null;
+    expireAt?: Date | string| null;
     isPrivate: boolean;
     createdAt?:Date | string; 
     updatedAt?:Date | string;
@@ -19,11 +19,11 @@ export interface INoteSchema extends Document {
     author: string;
     expireAt?: Date | string;
     isPrivate: boolean;
-    createdAt?:Date | string; 
-    updatedAt?:Date | string;
+    createdAt?:Date; 
+    updatedAt?:Date;
 }
 
-const NoteSchema = new Schema<INoteSchema >({
+const NoteSchema = new Schema<INoteSchema | INote>({
     "title": {
         "type": String,
         "required": [true, "Please add a title to your note"],
