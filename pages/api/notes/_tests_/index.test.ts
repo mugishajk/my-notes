@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import db from "../../../../src/utils/_tests_/db"
+
 import Note from '../../../../src/models/Note'
 /**
- * @jest-environment node
+ @shelf/jest-mongodb
  */
-
-beforeAll(async () => await db.connect())
-afterEach(async () => await db.clearDatabase())
-afterAll(async () => await db.closeDatabase())
 
 describe('Api Routes : Notes', () => {
     it('should insert a note document into the Note collection properly', async ( ) => {
@@ -16,14 +12,14 @@ describe('Api Routes : Notes', () => {
         const mockNote = {
             title:"My test note",
             description:"Ny test note description",
-            author:"Mugz"
+            author:"Mugisha"
         }
 
         const note = await Note.create(mockNote);
 
-        expect(note.title).toEqual("My test note")
-        expect(note.description).toEqual("Ny test note description")
-        expect(note.author).toEqual("Mugz")
+        expect(note.title).toEqual(mockNote.title)
+        expect(note.description).toEqual(mockNote.description)
+        expect(note.author).toEqual(mockNote.author)
 
     }
     )
