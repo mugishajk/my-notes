@@ -3,6 +3,7 @@
 import dbConnect from '../../../src/utils/dbConnect'
 import Note, { INote } from '../../../src/models/Note'
 import { NextApiRequest, NextApiResponse } from 'next'
+import cors from './cors'
 
 void dbConnect()
 type Data = {
@@ -11,6 +12,7 @@ type Data = {
     error?: string
 }
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    await cors(req, res)
     const { query : {id}, method, body } = req
 
     switch (method) {
